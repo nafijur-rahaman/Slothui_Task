@@ -130,36 +130,36 @@ function createReviewCard(review) {
   const hasHalfStar = (review.rating % 1) >= 0.5; 
   const emptyStars = totalStars - fullStars - (hasHalfStar ? 1 : 0); 
 
-  // Create full stars
+
   for (let i = 0; i < fullStars; i++) {
     const star = document.createElement("i");
     star.classList.add("fa", "fa-star", "yellow-star"); 
     rating.appendChild(star);
   }
 
-  // Create half stars
   if (hasHalfStar) {
     const star = document.createElement("i");
     star.classList.add("fa", "fa-star-half-alt", "yellow-star-half"); 
     rating.appendChild(star);
   }
 
-  // Create empty stars
+ 
   for (let i = 0; i < emptyStars; i++) {
     const star = document.createElement("i");
     star.classList.add("fa-regular", "fa-star", "yellow-star-empty");
     rating.appendChild(star);
   }
 
-  // Description
+ 
   const description = document.createElement("p");
   description.classList.add("review-description");
   description.textContent = review.description;
 
-  // User info
+ 
   const userInfo = document.createElement("div");
   userInfo.classList.add("user-info");
-// user avatar
+
+
   const avatar = document.createElement("img");
   avatar.src = review.avatarUrl;
   avatar.alt = "User Avatar";
@@ -192,42 +192,39 @@ function createReviewCard(review) {
 
 
 
-function loadReviews(displayCount) {
-  const container = document.getElementById("review-card-container");
-  container.innerHTML = "";
+const reviewContainer = document.getElementById("review-card-container");
+const loadMoreBtn = document.getElementById("loadMoreBtn");
+let reviewsToShow = window.innerWidth <= 768 ? 4 : reviewData.length; 
 
-  for (let i = 0; i < displayCount; i++) {
+function loadReviews(count) {
+  reviewContainer.innerHTML = ""; 
+
+  for (let i = 0; i < count && i < reviewData.length; i++) {
     const card = createReviewCard(reviewData[i]);
-    container.appendChild(card);
+    reviewContainer.appendChild(card);
   }
-}
 
-
-function LoadMoreButton() {
-  const loadMoreBtn = document.getElementById("loadMoreBtn");
-  const screenWidth = window.innerWidth;
-
-
-  if (screenWidth <= 768) {
-    loadMoreBtn.style.display = reviewData.length > 4 ? "block" : "none";
-  } else {
+ 
+  if (count >= reviewData.length) {
     loadMoreBtn.style.display = "none";
+  } else {
+    loadMoreBtn.style.display = "block";
   }
 }
 
 
-document.getElementById("loadMoreBtn").addEventListener("click", () => {
-  loadReviews(reviewData.length); 
-  LoadMoreButton(); 
+loadMoreBtn.addEventListener("click", () => {
+  reviewsToShow += 4; 
+  loadReviews(reviewsToShow);
 });
 
 
-loadReviews(window.innerWidth <= 768 ? 4 : reviewData.length);  
+loadReviews(reviewsToShow);
 
 
 window.addEventListener("resize", () => {
-  loadReviews(window.innerWidth <= 768 ? 4 : reviewData.length);
-  LoadMoreButton();
+  reviewsToShow = window.innerWidth <= 768 ? 4 : reviewData.length;
+  loadReviews(reviewsToShow);
 });
 
 
@@ -247,5 +244,7 @@ function toggleAnswer(faqId) {
 }
 
 
-
+  document.getElementById("scrollToTop").addEventListener("click", function() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 
