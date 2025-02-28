@@ -128,8 +128,8 @@ function createReviewCard(review) {
   rating.classList.add("rating");
   const totalStars = 5; 
   const fullStars = Math.floor(review.rating); 
-  const hasHalfStar = (review.rating % 1) >= 0.5; 
-  const emptyStars = totalStars - fullStars - (hasHalfStar ? 1 : 0); 
+  const HalfStar = (review.rating % 1) >= 0.5; 
+  const emptyStars = totalStars - fullStars - (HalfStar ? 1 : 0); 
 
 
   for (let i = 0; i < fullStars; i++) {
@@ -138,7 +138,7 @@ function createReviewCard(review) {
     rating.appendChild(star);
   }
 
-  if (hasHalfStar) {
+  if (HalfStar) {
     const star = document.createElement("i");
     star.classList.add("fa", "fa-star-half-alt", "yellow-star-half"); 
     rating.appendChild(star);
