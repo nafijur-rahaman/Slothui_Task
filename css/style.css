@@ -806,34 +806,7 @@ body {
   line-height: 1.4;
 }
 
-/*  Responsive Design */
-@media (max-width: 768px) {
-  .location-card-container {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-  }
 
-  .location-card {
-    width: 90%;
-    max-width: 300px;
-    padding: 15px;
-    height: auto;
-  }
-
-  .location-icon {
-    margin-top: 10px;
-  }
-
-  .location-info h3 {
-    font-size: 16px;
-  }
-
-  .location-info p {
-    font-size: 13px;
-    max-width: 180px;
-  }
-}
 
 /* FAQ section style  */
 
@@ -1329,45 +1302,31 @@ body {
 
   /* location section responsive design */
 
-  /* .location-card-container{
-       flex-direction: column;
-       padding: 10px;
-    
-    }
+  .location-card-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
 
-    .location-icon{
-        margin-top: 20px;
-    ;
-    }
+  .location-card {
+    width: 90%;
+    max-width: 300px;
+    padding: 15px;
+    height: auto;
+  }
 
-    .location-card{
-        width: 235px;
-        height: 100px;
-        border-radius: 24px;
-        border: 1px solid #E2E8F0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: start;
-        gap: 10px;
-        text-align: start;
-        padding: 30px;
-    }
+  .location-icon {
+    margin-top: 10px;
+  }
 
-    .location-info>h3{
-        font-size: 18px;
-        font-weight: 800;
-        color: #1E293B;
-    }
-    .location-info>p{
-        width: 130px;
-        font-size: 14px;
-        color: #1E293B;
-    }
+  .location-info h3 {
+    font-size: 16px;
+  }
 
-    .location-title{
-        padding: 10px;
-    } */
+  .location-info p {
+    font-size: 13px;
+    max-width: 180px;
+  }
 
   /* app download section responsive */
 
