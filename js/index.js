@@ -54,68 +54,69 @@ window.onload = Counters;
 const reviewData = [
   {
     rating: 4,
-    description: `"Thanks to this platform, I found an amazing tutor for my daughter. Her grades have improved significantly!"`,
-    userName: "Alice Smith",
-    userDesignation: "Parent",
+    description: `"Working with this design agency was a fantastic experience! They truly understood our vision and transformed it into a stunning design."`,
+    userName: "X_AE_A-13",
+    userDesignation: "Product Designer, slothUI",
     avatarUrl: "./images/avatar(1).png"
   },
   {
     rating: 4.5,
-    description: `"The tutors here are highly qualified. I've learned so much in just a few weeks!"`,
-    userName: "Brian Lee",
-    userDesignation: "College Student",
+    description: `"The team’s attention to detail and ability to turn complex ideas into intuitive designs is amazing. Our users love the new interface!"`,
+    userName: "Azunyan U. Wu",
+    userDesignation: "CEO, nextlife.ai ",
     avatarUrl: "./images/avatar(2).png"
   },
   {
     rating: 5,
-    description: `"Amazing experience! My tutor was very patient and explained everything clearly."`,
-    userName: "Maria Garcia",
-    userDesignation: "High School Student",
+    description: `"Exceptional design work! They took the time to understand our brand and delivered an aesthetically pleasing, functional design."`,
+    userName: "Mechatronics Yi ",
+    userDesignation: "CTO, fin4win.ai",
     avatarUrl: "./images/avatar(3).png"
   },
   {
     rating: 4,
-    description: `"I was skeptical at first, but the platform exceeded my expectations. Highly recommended!"`,
-    userName: "David Kim",
-    userDesignation: "Graduate Student",
+    description: `"We were impressed with how quickly the team delivered. The designs were innovative and aligned perfectly with our goals."`,
+    userName: "Oarack Babama",
+    userDesignation: "Former President of US ",
     avatarUrl: "./images/avatar(4).png"
   },
   {
     rating: 5,
-    description: `"The tutors are fantastic! They really take the time to understand the student's needs."`,
-    userName: "Jessica Brown",
-    userDesignation: "Middle School Student",
+    description: `"Their designs are both beautiful and user-friendly. The process was smooth, and we are extremely happy with the outcome."`,
+    userName: "Saylor Twift",
+    userDesignation: "Famous Singer ",
     avatarUrl: "./images/avatar(5).png"
   },
   {
     rating: 5,
-    description: `"I've tried many tutoring services, and this is by far the best one! Great value for money."`,
-    userName: "Ethan White",
-    userDesignation: "University Student",
+    description: `"This design agency went above and beyond to deliver a product that not only looks great but also improves user engagement. Highly recommended!"`,
+    userName: "Asuna Yuuki",
+    userDesignation: "Virtual Swordsman    ",
     avatarUrl: "./images/avatar(6).png"
   },
   {
     rating: 4,
-    description: `"The flexibility of scheduling sessions made it so convenient for me. Thank you!"`,
-    userName: "Emily Davis",
-    userDesignation: "Adult Learner",
+    description: `"Great experience! They worked closely with us to refine our ideas and helped us create a design that resonates with our target audience."`,
+    userName: "Boe Jiden",
+    userDesignation: "Former President Of Canada ",
     avatarUrl: "./images/avatar(7).png"
   },
   {
     rating: 3,
-    description: `"A wonderful platform! I've connected with tutors who are passionate about teaching."`,
-    userName: "Sophie Clark",
-    userDesignation: "High School Graduate",
+    description: `"Good service with a focus on detail. We saw positive improvements in user interaction, but we’d love to see even more creativity in future designs."`,
+    userName: "Vermillion D. Gray",
+    userDesignation: "CEO, hacklife.ai  ",
     avatarUrl: "./images/avatar(8).png"
   },
   {
     rating: 5,
-    description: `"This service has truly changed my learning experience for the better. I can't thank my tutor enough!"`,
-    userName: "Michael Johnson",
-    userDesignation: "Engineering Student",
+    description: `"Incredible work! They not only delivered on time but also helped us elevate our brand identity with their innovative designs. Very happy with the results!"`,
+    userName: "Zuckman Wu",
+    userDesignation: "CEO, tech4life.ai",
     avatarUrl: "./images/avatar(9).png"
   }
 ];
+
 
 
 function createReviewCard(review) {
@@ -248,3 +249,24 @@ function toggleAnswer(faqId) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
+
+
+   
+   const elements = document.querySelectorAll('.fade-in, .bounce, .rotate-in, .flip-in');
+
+   const options = {
+     threshold: 0.1, 
+   };
+
+   const observer = new IntersectionObserver((entries, observer) => {
+     entries.forEach(entry => {
+       if (entry.isIntersecting) {
+         entry.target.classList.add('is-visible');
+         observer.unobserve(entry.target); 
+       }
+     });
+   }, options);
+
+   elements.forEach(element => {
+     observer.observe(element);
+   });
