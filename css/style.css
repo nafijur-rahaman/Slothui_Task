@@ -313,8 +313,8 @@ body {
 
 .logo-layout img {
 
-    width: 144px;
-    height: 95px;
+    width: auto;
+    height: auto;
 
 
 }
@@ -336,6 +336,7 @@ body {
 .feature-section {
     margin-top: 100px;
     margin-bottom: 50px;
+    padding: 5px;
 }
 
 .feature-tagline {
@@ -366,6 +367,7 @@ body {
 .feature-title>p {
     font-size: 18px;
     color: var(--text-color);
+    
 }
 
 
@@ -381,7 +383,9 @@ body {
 }
 
 .feature-description {
-    width: 90%;
+    width: 100%;
+  text-align: center;
+
 }
 
 .features {
@@ -1128,7 +1132,7 @@ body {
     .logo-layout>img {
 
         width: 70px;
-        height: auto;
+      
 
 
     }
@@ -1163,7 +1167,7 @@ body {
     /* responsive motivation section */
 
     .details-img {
-        width: 100%;
+        width: 95%;
         height: auto;
         aspect-ratio: 1 / 1.2;
         border-radius: 20px;
